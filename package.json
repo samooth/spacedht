@@ -1,6 +1,6 @@
 {
   "name": "spacedht",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The DHT powering Spaceswarm",
   "main": "index.js",
   "browser": "browser.js",
@@ -58,11 +58,11 @@
     "end-to-end": "brittle test/end-to-end/*.js"
   },
   "author": "Mathias Buus (@mafintosh)",
-  "contributors" : [
+  "contributors": [
     {
-      "name" : "Tomás Díaz",
-      "email" : "tomas@bsv.direct",
-      "url" : "https://github.com/samooth"
+      "name": "Tomás Díaz",
+      "email": "tomas@bsv.direct",
+      "url": "https://github.com/samooth"
     }
   ],
   "license": "MIT",
