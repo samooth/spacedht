@@ -38,6 +38,7 @@
     "safety-catch": "^1.0.1",
     "signal-promise": "^1.0.3",
     "sodium-universal": "^5.0.1",
+    "spacecore-crypto": "^0.0.1",
     "streamx": "^2.16.1",
     "unslab": "^1.3.0",
     "xache": "^1.1.0"
