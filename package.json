@@ -1,13 +1,7 @@
 {
-<<<<<<< Updated upstream
-  "name": "hyperdht",
-  "version": "6.20.5",
-  "description": "The DHT powering Hyperswarm",
-=======
   "name": "spacedht",
   "version": "0.0.1",
   "description": "The DHT powering Spaceswarm",
->>>>>>> Stashed changes
   "main": "index.js",
   "browser": "browser.js",
   "bin": {
