@@ -1,6 +1,6 @@
 const test = require('brittle')
 const { swarm, createDHT, endAndCloseSocket } = require('./helpers')
-const { encode } = require('hypercore-id-encoding')
+const { encode } = require('../../spacecore-id-encoding')
 const { once } = require('events')
 const DHT = require('../')
 
@@ -671,7 +671,7 @@ test('exception if invalid id is used', async function (t) {
     a.connect(id)
     t.fail()
   } catch (err) {
-    t.is(err.message, 'Invalid Hypercore key')
+    t.is(err.message, 'Invalid Spacecore key')
     await a.destroy()
   }
 })
@@ -685,7 +685,7 @@ test('exception if null id is used', async function (t) {
     a.connect(null)
     t.fail()
   } catch (err) {
-    t.is(err.message, 'Invalid Hypercore key')
+    t.is(err.message, 'Invalid Spacecore key')
     await a.destroy()
   }
 })

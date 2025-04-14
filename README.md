@@ -1,16 +1,16 @@
-# hyperdht
+# spacedht
 
-### [See the full API docs at docs.holepunch.to](https://docs.holepunch.to/building-blocks/hyperswarm#dht)
+### [See the full API docs at docs.space.bsv.direct](https://docs.space.bsv.direct/building-blocks/spaceswarm#dht)
 
-The DHT powering Hyperswarm
+The DHT powering Spaceswarm
 
 ```
-npm install hyperdht
+npm install spacedht
 ```
 
-Built on top of [dht-rpc](https://github.com/mafintosh/dht-rpc).
+Built on top of [dht-rpc](https://github.com/samooth/dht-rpc).
 
-The Hyperswarm DHT uses a series of holepunching techniques to make sure connectivity works on most networks,
+The Spaceswarm DHT uses a series of holepunching techniques to make sure connectivity works on most networks,
 and is mainly used to facilitate finding and connecting to peers using end to end encrypted Noise streams.
 
 ## Usage
@@ -18,7 +18,7 @@ and is mainly used to facilitate finding and connecting to peers using end to en
 To try it out, first instantiate a DHT instance
 
 ``` js
-import DHT from 'hyperdht'
+import DHT from 'spacedht'
 
 const node = new DHT()
 ```
@@ -69,7 +69,7 @@ Options include:
 ```js
 {
   // Optionally overwrite the default bootstrap servers, just need to be an array of any known dht node(s)
-  // Defaults to Pear.config.dht.bootstrap in a Pear app or ['88.99.3.86@node1.hyperdht.org:49737', '142.93.90.113@node2.hyperdht.org:49737', '138.68.147.8@node3.hyperdht.org:49737'] elsewhere
+  // Defaults to Pear.config.dht.bootstrap in a Pear app or ['88.99.3.86@node1.spacedht.org:49737', '142.93.90.113@node2.spacedht.org:49737', '138.68.147.8@node3.spacedht.org:49737'] elsewhere
   // Supports suggested-IP to avoid DNS calls: [suggested-IP@]<host>:<port>
   bootstrap: ['host:port'],
   keyPair, // set the default key pair to use for server.listen and connect
@@ -79,7 +79,7 @@ Options include:
 }
 ```
 
-See [dht-rpc](https://github.com/mafintosh/dht-rpc) for more options as HyperDHT inherits from that.
+See [dht-rpc](https://github.com/samooth/dht-rpc) for more options as SpaceDHT inherits from that.
 
 *Note:* The default bootstrap servers are publicly served on behalf of the commons. To run a fully isolated DHT, start one or more dht nodes with an empty bootstrap array (`new DHT({bootstrap:[]})`) and then use the addresses of those nodes as the `bootstrap` option in all other dht nodes. You'll need at least one persistent node for the network to be completely operational.
 
@@ -100,7 +100,7 @@ If you want to force close the node without waiting for the servers to unannounc
 
 #### `node = DHT.bootstrapper(port, host, [options])`
 
-If you want to run your own Hyperswarm network use this method to easily create a bootstrap node.
+If you want to run your own Spaceswarm network use this method to easily create a bootstrap node.
 
 ## Creating P2P servers
 
@@ -136,7 +136,7 @@ Refresh the server, causing it to reannounce its address. This is automatically 
 
 Emitted when a new encrypted connection has passed the firewall check.
 
-`socket` is a [NoiseSecretStream](https://github.com/holepunchto/hyperswarm-secret-stream) instance.
+`socket` is a [NoiseSecretStream](https://github.com/samooth/spaceswarm-secret-stream) instance.
 
 You can check who you are connected to using `socket.remotePublicKey` and `socket.handshakeHash` contains a unique hash representing this crypto session (same on both sides).
 
@@ -269,24 +269,24 @@ Any additional options you pass are forwarded to dht-rpc.
 
 ## Additional API
 
-See [dht-rpc](https://github.com/mafintosh/dht-rpc) for the additional APIs the DHT exposes.
+See [dht-rpc](https://github.com/samooth/dht-rpc) for the additional APIs the DHT exposes.
 
 ## CLI
 
 You can start a DHT node in the command line:
 
 ```sh
-npm install -g hyperdht
+npm install -g spacedht
 ```
 
 Run a DHT node:
 ```sh
-hyperdht # [--port 0] [--host 0.0.0.0] [--bootstrap <comma separated list of ip:port>]
+spacedht # [--port 0] [--host 0.0.0.0] [--bootstrap <comma separated list of ip:port>]
 ```
 
 Or run multiple nodes:
 ```sh
-hyperdht --nodes 5 # [--host 0.0.0.0] [--bootstrap <list>]
+spacedht --nodes 5 # [--host 0.0.0.0] [--bootstrap <list>]
 ```
 
 Note: by default it uses the [mainnet bootstrap nodes](lib/constants.js).
@@ -297,7 +297,7 @@ To create your own DHT network is as follows:
 
 1) Run your first bootstrap node:
 ```sh
-hyperdht --bootstrap --host (server-ip) # [--port 49737]
+spacedht --bootstrap --host (server-ip) # [--port 49737]
 ```
 
 Important: it requires the port to be open.
@@ -314,7 +314,7 @@ For the network to be fully operational it needs at least one persistent node.
 2) Provide the first node by using your own bootstrap values:
 
 ```sh
-hyperdht --port 49738 --bootstrap (server-ip):49737
+spacedht --port 49738 --bootstrap (server-ip):49737
 ```
 
 Important: it requires the port to be open too.

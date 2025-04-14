@@ -1,7 +1,7 @@
 const test = require('brittle')
 const { swarm, toArray } = require('./helpers')
 const DHT = require('../')
-const HyperDHT = require('../')
+const SpaceDHT = require('../')
 
 test('server listen and findPeer', async function (t) {
   const [a, b] = await swarm(t)
@@ -168,7 +168,7 @@ test('announcer background does not over-trigger', async function (t) {
   const testnet = await swarm(t, 2) // must be <=3 (less than announcer MIN_ACTIVE) to trigger previous bug
   const bootstrap = testnet.bootstrap
 
-  const a = new HyperDHT({ bootstrap })
+  const a = new SpaceDHT({ bootstrap })
 
   const initTid = a.io._tid
   const server = a.createServer()

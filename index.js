@@ -11,12 +11,12 @@ const Server = require('./lib/server')
 const connect = require('./lib/connect')
 const { FIREWALL, BOOTSTRAP_NODES, KNOWN_NODES, COMMANDS } = require('./lib/constants')
 const { hash, createKeyPair } = require('./lib/crypto')
-const { decode } = require('hypercore-id-encoding')
+const { decode } = require('../spacecore-id-encoding')
 const RawStreamSet = require('./lib/raw-stream-set')
 const ConnectionPool = require('./lib/connection-pool')
 const { STREAM_NOT_CONNECTED } = require('./lib/errors')
 
-class HyperDHT extends DHT {
+class SpaceDHT extends DHT {
   constructor (opts = {}) {
     const port = opts.port || 49737
     const bootstrap = opts.bootstrap || BOOTSTRAP_NODES
@@ -476,10 +476,10 @@ class HyperDHT extends DHT {
   }
 }
 
-HyperDHT.BOOTSTRAP = BOOTSTRAP_NODES
-HyperDHT.FIREWALL = FIREWALL
+SpaceDHT.BOOTSTRAP = BOOTSTRAP_NODES
+SpaceDHT.FIREWALL = FIREWALL
 
-module.exports = HyperDHT
+module.exports = SpaceDHT
 
 function mapLookup (node) {
   if (!node.value) return null

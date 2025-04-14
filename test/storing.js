@@ -1,5 +1,5 @@
 const test = require('brittle')
-const HyperDHT = require('../')
+const SpaceDHT = require('../')
 const { swarm } = require('./helpers')
 
 test('immutable put - get', async function (t) {
@@ -20,7 +20,7 @@ test('immutable put - get', async function (t) {
 
 test('mutable put - get', async function (t) {
   const { nodes } = await swarm(t, 100)
-  const keyPair = HyperDHT.keyPair()
+  const keyPair = SpaceDHT.keyPair()
 
   const put = await nodes[30].mutablePut(keyPair, Buffer.from('testing'))
 
@@ -43,7 +43,7 @@ test('mutable put - get', async function (t) {
 
 test('mutable put - put - get', async function (t) {
   const { nodes } = await swarm(t, 100)
-  const keyPair = HyperDHT.keyPair()
+  const keyPair = SpaceDHT.keyPair()
 
   const put = await nodes[30].mutablePut(keyPair, Buffer.from('testing'))
 
