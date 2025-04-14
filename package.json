@@ -50,10 +50,10 @@
     "standard": "^17.1.0"
   },
   "scripts": {
-    "test": "standard && node test/all.js",
+    "test": "npx standard && node test/all.js",
     "test:bare": "bare test/all.js",
     "test:generate": "brittle -r test/all.js test/*.js",
-    "lint": "standard",
+    "lint": "npx standard",
     "integration": "brittle test/integration/*.js",
     "end-to-end": "brittle test/end-to-end/*.js"
   },
