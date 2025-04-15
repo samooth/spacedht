@@ -1,6 +1,6 @@
 {
   "name": "spacedht",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "The DHT powering Spaceswarm",
   "main": "index.js",
   "browser": "browser.js",
