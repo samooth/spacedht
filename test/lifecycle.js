@@ -1,6 +1,6 @@
 const test = require('brittle')
 const safetyCatch = require('safety-catch')
-const hypCrypto = require('../../spacecore-crypto')
+const hypCrypto = require('spacecore-crypto')
 const { swarm } = require('./helpers')
 
 test('Can destroy a DHT node while server.listen() is called', async function (t) {

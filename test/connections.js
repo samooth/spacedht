@@ -1,6 +1,6 @@
 const test = require('brittle')
 const { swarm, createDHT, endAndCloseSocket } = require('./helpers')
-const { encode } = require('../../spacecore-id-encoding')
+const { encode } = require('spacecore-id-encoding')
 const { once } = require('events')
 const DHT = require('../')
 

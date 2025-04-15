@@ -81,16 +81,16 @@ class SpaceDHT extends DHT {
     await super.resume({ log })
     const resuming = []
     for (const server of this.listening) resuming.push(server.resume())
-    log('Resuming hyperdht servers')
+    log('Resuming spacedht servers')
     await Promise.allSettled(resuming)
-    log('Done, hyperdht fully resumed')
+    log('Done, spacedht fully resumed')
   }
 
   async suspend ({ log = noop } = {}) {
     this._connectable = false // just so nothing gets connected during suspension
     const suspending = []
     for (const server of this.listening) suspending.push(server.suspend())
-    log('Suspending all hyperdht servers')
+    log('Suspending all spacedht servers')
     await Promise.allSettled(suspending)
     log('Done, clearing all raw streams')
     await this._rawStreams.clear()
@@ -98,7 +98,7 @@ class SpaceDHT extends DHT {
     await super.suspend({ log })
     log('Done, clearing raw streams again')
     await this._rawStreams.clear()
-    log('Done, hyperdht fully suspended')
+    log('Done, spacedht fully suspended')
     this._connectable = true
   }
 

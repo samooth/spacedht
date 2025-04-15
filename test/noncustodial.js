@@ -1,5 +1,5 @@
 const test = require('brittle')
-const NoiseSecretStream = require('../../spaceswarm-secret-stream')
+const NoiseSecretStream = require('spaceswarm-secret-stream')
 const NoiseWrap = require('../lib/noise-wrap')
 const Persistent = require('../lib/persistent')
 const { swarm } = require('./helpers')
